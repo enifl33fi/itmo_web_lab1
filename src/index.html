@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1</title>
+    <link href = "../static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="data header">
+            <img src="../static/img/profile.jpeg" alt="profile" class="profile-pic"/>
+            <div class="header-info">
+                <p>Марков Кирилл Андреевич</p>
+                <p>Группа: P3213</p>
+                <p>Вариант: 2306</p>
+                <a href="https://vk.com/enifleefi"><img src="../static/img/vk_logo.png" alt="vk"></a>
+                <a href="https://github.com/enifl33fi"><img src="../static/img/github_logo.png" alt="github"></a>
+                <a href="https://isu.ifmo.ru/pls/apex/f?p=2143:PERSON:102027591272963::NO:RP:PID:367380"><img src="../static/img/itmo_logo.png" alt="itmo"></a>
+            </div>
+        </div>
+
+        <div class="data main">
+            <form>
+                <div class="inputs">
+                    <div class="single-field y-field">
+                        <label for="y">Y</label>
+                        <input id = "y" name="y" type="text" placeholder="Введите число от -3 до 5"/>
+                    </div>
+
+                    <div class="single-field r-field">
+                        <label for="r">R</label>
+                        <input id = "r" name="r" type="text" placeholder="Введите число от 2 до 5"/>
+                    </div>
+
+                    <div class="single-field x-field">
+                        <fieldset>
+                            <legend>X</legend>
+
+                            <input id = "-3" type="checkbox" name = "x" value="-3"/>
+                            <label for="-3"> -3</label>
+
+                            <input id = "-2" type="checkbox" name = "x" value="-2"/>
+                            <label for="-2"> -2</label>
+
+                            <input id = "-1" type="checkbox" name = "x" value="-1"/>
+                            <label for="-1"> -1</label>
+
+                            <input id = "0" type="checkbox" name = "x" value="0"/>
+                            <label for="0"> 0</label>
+
+                            <input id = "1" type="checkbox" name = "x" value="1"/>
+                            <label for="1"> 1</label>
+
+                            <input id = "2" type="checkbox" name = "x" value="2"/>
+                            <label for="2"> 2</label>
+
+                            <input id = "3" type="checkbox" name = "x" value="3"/>
+                            <label for="3"> 3</label>
+
+                            <input id = "4" type="checkbox" name = "x" value="4"/>
+                            <label for="4"> 4</label>
+
+                            <input id = "5" type="checkbox" name = "x" value="5"/>
+                            <label for="5"> 5</label>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class = "additional">
+                    <div class="single-field picture-field">
+                        <img src="../static/img/main.png" alt="main">
+                    </div>
+                    <input type="submit" value="Проверить">
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

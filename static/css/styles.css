@@ -42,7 +42,9 @@ fieldset {
 }
 
 .header-info {
-    margin: 1% 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 2%;
 }
 
 .header a {
@@ -129,3 +131,19 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
+@media (max-width: 850px) {
+    .header {
+        display: block;
+        text-align: center;
+    }
+    .header-info {
+        text-align: center;
+        margin-left: 2%;
+    }
+    .profile-pic {
+        margin-top: 5%;
+    }
+    .main > form {
+        display: block;
+    }
+}

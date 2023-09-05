@@ -79,6 +79,11 @@ fieldset {
 
 .single-field input[type="text"] {
     border-radius: 10px;
+    border-width: 0;
+    border-style: solid;
+    border-color: #66B2FF;
+    outline: none;
+    text-align: center;
     font-family: inherit;
     margin-bottom: 10%;
     max-width:100%;
@@ -93,9 +98,10 @@ input[type="submit"] {
     color: inherit;
     background-color: #141414;
     border-radius: 10px;
-    border: 0;
+    border-width: 0;
     width: 80%;
     min-width: 100px;
+
 }
 
 input[type="submit"]:hover {

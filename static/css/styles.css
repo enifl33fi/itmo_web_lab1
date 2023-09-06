@@ -101,11 +101,12 @@ input[type="submit"] {
     border-width: 0;
     width: 80%;
     min-width: 100px;
+    opacity: 0.8;
 
 }
 
 input[type="submit"]:hover {
-    opacity: 0.8;
+    opacity: 0.8 !important;
 }
 
 .r-field , .y-field {
@@ -156,5 +157,8 @@ input[type="submit"]:hover {
     }
     .main > form {
         display: block;
+    }
+    input[type="submit"] {
+        margin-bottom: 5%;
     }
 }

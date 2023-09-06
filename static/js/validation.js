@@ -21,11 +21,11 @@ function validateY() {
         yField.style.borderColor = validColor
         isFieldsValid.y = true
         if (isFieldsValid.y && isFieldsValid.r) {
-            submitButton.disabled = false;
+            buttonSwitch(false)
         }
     } else {
         yField.style.borderColor = notValidColor
-        submitButton.disabled = true;
+        buttonSwitch(true)
         isFieldsValid.y = false
     }
 }
@@ -45,11 +45,11 @@ function validateR() {
         rField.style.borderColor = validColor
         isFieldsValid.r = true
         if (isFieldsValid.y && isFieldsValid.r) {
-            submitButton.disabled = false;
+            buttonSwitch(false)
         }
     } else {
         rField.style.borderColor = notValidColor
-        submitButton.disabled = true;
+        buttonSwitch(true)
         isFieldsValid.r = false
     }
 }
@@ -61,5 +61,15 @@ function validateX(chElem) {
             let elem = document.getElementById(i.toString())
             elem.checked = false;
         }
+    }
+}
+
+function buttonSwitch(disable) {
+    if (disable) {
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.8'
+    } else {
+        submitButton.disabled = false;
+        submitButton.style.opacity = '1.0'
     }
 }

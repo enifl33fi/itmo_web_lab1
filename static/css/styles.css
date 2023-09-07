@@ -47,6 +47,9 @@ fieldset {
 }
 
 .header-info {
+    font-family: sans-serif;
+    color: #D0D0D0;
+    font-size: 18px;
     margin-top: 1%;
     margin-bottom: 1%;
     margin-right: 2%;

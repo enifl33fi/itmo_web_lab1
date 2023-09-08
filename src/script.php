@@ -50,9 +50,9 @@
             $rField = floatval($rField);
             if ($xField >= 0 && $yField >= 0) {
                 return ($xField <= $rField && $yField <= $rField / 2);
-            }  elseif ($xField > 0 && $yField < 0) {
+            }  elseif ($xField >= 0 && $yField <= 0) {
                 return (($yField - $xField) <= -$rField / 2);
-            } elseif ($xField < 0 && $yField < 0) {
+            } elseif ($xField <= 0 && $yField <= 0) {
                 return (($yField**2 + $xField**2) <= ($rField / 2) ** 2);
             }
         }

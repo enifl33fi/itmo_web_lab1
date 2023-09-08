@@ -63,7 +63,7 @@
     }
     if (checkData($x, $yField, $rField)) {
         $curDate = date('Y-m-d H:i:s');
-        $scriptTime = (microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) . 'мкс';
+        $scriptTime = (microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) . 'с';
         array_push($_SESSION['table'], array($x[0], $yField, $rField, $curDate, $scriptTime, $result));
     }
 ?>
@@ -73,16 +73,80 @@
     <head>
         <meta charset="UTF-8">
         <title>Lab1</title>
-        <link href = "../static/css/styles2.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
         <script defer src="../static/js/validation.js"></script>
+        <style>
+            body {
+                background-color: #1D1E1E;
+                color: #D0D0D0;
+                font-family: 'Lucida Sans Unicode', 'Helvetica', sans-serif;
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            table {
+                border:solid #D0D0D0 1px;
+                border-radius: 10px;
+                margin: auto;
+                text-align: center;
+                border-spacing: 0;
+            }
+
+            td, th {
+                border-left:solid #D0D0D0 1px;
+                border-top:solid #D0D0D0 1px;
+                padding: 5px;
+            }
+            td {
+                font-weight: lighter;
+            }
+
+            th {
+                background-color: #141414;
+            }
+
+            th:first-of-type {
+                border-top-left-radius: 8px;
+            }
+            th:last-of-type {
+                border-top-right-radius: 8px;
+            }
+            tr:last-of-type td:first-of-type {
+                border-bottom-left-radius: 8px;
+            }
+            tr:last-of-type td:last-of-type {
+                border-bottom-right-radius: 8px;
+            }
+            .back img{
+                margin-bottom: 1%;
+            }
+
+            #anim-background {
+                position:absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            .container {
+                width: 50%;
+                margin: auto;
+            }
+
+            .data {
+                position: relative;
+                background-color: #282828;
+                border-radius: 20px;
+                margin: 30% auto;
+                padding: 5% 2%;
+            }
+        </style>
     </head>
     <body>
         <div id="anim-background">
             <div class="container">
                 <div class="data">
-                    <a href="index.html"><img src="../static/img/back.png" alt="go back"/></a>
+                    <a href="index.html" class="back"><img src="../static/img/back.png" alt="go back"/></a>
                     <table>
                         <tr>
                             <th>X</th>

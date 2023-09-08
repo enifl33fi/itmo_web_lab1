@@ -67,9 +67,11 @@ function validateX(chElem) {
 function buttonSwitch(disable) {
     if (disable) {
         submitButton.disabled = true;
-        submitButton.style.opacity = '0.8'
+        submitButton.classList.remove('shown')
+        submitButton.classList.add('hidden')
     } else {
         submitButton.disabled = false;
-        submitButton.style.opacity = '1.0'
+        submitButton.classList.remove('hidden')
+        submitButton.classList.add('shown')
     }
 }

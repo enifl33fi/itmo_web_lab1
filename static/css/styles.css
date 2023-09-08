@@ -94,7 +94,12 @@ fieldset {
     width: auto;
     height: auto;
 }
-
+.hidden {
+    opacity: 0.8;
+}
+.shown {
+    opacity: 1.0;
+}
 input[type="submit"] {
     font-family: inherit;
     font-size: inherit;
@@ -104,12 +109,10 @@ input[type="submit"] {
     border-width: 0;
     width: 80%;
     min-width: 100px;
-    opacity: 0.8;
 
 }
-
 input[type="submit"]:hover {
-    opacity: 0.8 !important;
+    opacity: 0.8;
 }
 
 .r-field , .y-field {

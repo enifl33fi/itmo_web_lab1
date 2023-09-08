@@ -7,7 +7,7 @@
     $yField = $_POST['y'];
     $rField = $_POST['r'];
     $x = ($_POST['x']);
-    $result = 'Говно, переделывай';
+    $result = false;
 
 
     if (!isset($_SESSION['table'])) {
@@ -59,7 +59,7 @@
         return false;
     }
     if (checkInArea($x, $yField, $rField)) {
-        $result = 'С пивом потянет';
+        $result = true;
     }
     if (checkData($x, $yField, $rField)) {
         $curDate = date('Y-m-d H:i:s');
@@ -94,9 +94,18 @@
                         </tr>
                         <?php foreach ($_SESSION['table'] as $table): ?>
                             <tr>
-                                <?php for ($i = 0; $i < count($table); $i++): ?>
+                                <?php for ($i = 0; $i < count($table) - 1; $i++): ?>
                                     <td><?php echo $table[$i]; ?></td>
                                 <?php endfor; ?>
+                                <?php
+                                    $color = "#FF9999";
+                                    $text_result = "Говно, переделывай";
+                                    if (end($table)) {
+                                        $color = "#99FF99";
+                                        $text_result = "С пивом потянет";
+                                    }
+                                ?>
+                                <td style="color: <?php echo $color; ?>"><?php echo $text_result; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </table>

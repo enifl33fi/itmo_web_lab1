@@ -4,9 +4,14 @@
         session_start();
     }
 
-    $yField = $_POST['y'];
-    $rField = $_POST['r'];
-    $x = ($_POST['x']);
+    $yField = null;
+    $rField = null;
+    $x = null;
+    if (isset($_POST['y']) && isset($_POST['r']) && isset($_POST['x'])) {
+        $yField = $_POST['y'];
+        $rField = $_POST['r'];
+        $x = $_POST['x'];
+    }
     $result = false;
 
 
@@ -16,14 +21,14 @@
 
     function checkY($yField): bool
     {
-        if (!isset($yField) or empty($yField)) {
+        if (!isset($yField)) {
             return false;
         }
         return is_numeric($yField) && $yField >= -3 && $yField <= 5;
     }
     function checkR($rField): bool
     {
-        if (!isset($rField) or empty($rField)) {
+        if (!isset($rField)) {
             return false;
         }
         return is_numeric($rField) && $rField >= 2 && $rField <= 5;
@@ -50,7 +55,7 @@
             $rField = floatval($rField);
             if ($xField >= 0 && $yField >= 0) {
                 return ($xField <= $rField && $yField <= $rField / 2);
-            }  elseif ($xField >= 0 && $yField <= 0) {
+            } elseif ($xField >= 0 && $yField <= 0) {
                 return (($yField - $xField) <= -$rField / 2);
             } elseif ($xField <= 0 && $yField <= 0) {
                 return (($yField**2 + $xField**2) <= ($rField / 2) ** 2);

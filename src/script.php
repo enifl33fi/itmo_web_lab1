@@ -88,6 +88,7 @@
                 font-family: 'Lucida Sans Unicode', 'Helvetica', sans-serif;
                 font-weight: 600;
                 font-size: 16px;
+                margin: 0;
             }
 
             table {

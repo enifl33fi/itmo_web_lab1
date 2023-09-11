@@ -62,6 +62,7 @@ function validateX(chElem) {
             elem.checked = false;
         }
     }
+    chElem.checked = true;
 }
 
 function buttonSwitch(disable) {

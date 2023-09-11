@@ -70,6 +70,8 @@
         $curDate = date('Y-m-d H:i:s');
         $scriptTime = (microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) . 'с';
         array_push($_SESSION['table'], array($x[0], $yField, $rField, $curDate, $scriptTime, $result));
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit();
     }
 ?>
 

@@ -55,12 +55,9 @@ function validateR() {
 }
 
 function validateX(chElem) {
-    let ind = parseInt(chElem.id)
-    for (let i = -3; i <= 5; i++) {
-        if (i !== ind) {
-            let elem = document.getElementById(i.toString())
-            elem.checked = false;
-        }
+    let checkboxes = document.getElementsByName("x[]")
+    for (const elem of checkboxes) {
+        elem.checked = false;
     }
     chElem.checked = true;
 }

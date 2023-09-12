@@ -17,7 +17,7 @@ function validateY() {
 
     let yField = document.getElementById('y')
     yField.style.borderWidth = '2px'
-    if (isValidY(parseFloat(yField.value.replace(',', '.')))) {
+    if (isValidY(yField.value.replace(',', '.'))) {
         yField.style.borderColor = validColor
         isFieldsValid.y = true
         if (isFieldsValid.y && isFieldsValid.r) {
@@ -41,7 +41,7 @@ function isValidR(rFieldVal) {
 function validateR() {
     let rField = document.getElementById('r')
     rField.style.borderWidth = '2px'
-    if (isValidR(parseFloat(rField.value.replace(',', '.')))) {
+    if (isValidR(rField.value.replace(',', '.'))) {
         rField.style.borderColor = validColor
         isFieldsValid.r = true
         if (isFieldsValid.y && isFieldsValid.r) {

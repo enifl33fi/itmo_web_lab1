@@ -7,18 +7,21 @@
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
     <script defer src="../static/js/validation.js"></script>
     <style>
+
         html,
         body {
             margin: 0;
-            padding: 0;
             height: 100%;
+            width: 100%;
         }
+
         body {
             background-color: #1D1E1E;
             color: #D0D0D0;
             font-family: 'Lucida Sans Unicode', 'Helvetica', sans-serif;
             font-weight: 600;
             font-size: 16px;
+            padding: 15% 0;
         }
 
         p {
@@ -27,13 +30,6 @@
 
         fieldset {
             border: 0;
-        }
-
-        #anim-background {
-            position: absolute;
-            padding-bottom: 20%;
-            width: 100%;
-            height: 100%;
         }
 
         .container {
@@ -56,7 +52,9 @@
             display: flex;
             width: 70%;
             height: 20%;
-            margin: 20% auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20%;
         }
 
         .header-info {
@@ -162,7 +160,7 @@
             text-align: center;
         }
 
-        @media (max-width: 850px) {
+        @media (max-device-width: 850px), (max-width: 850px){
             html,
             body {
                 margin: 0;
@@ -189,79 +187,77 @@
         }
     </style>
 </head>
-<body>
-    <div id="anim-background">
-        <div class="container">
-            <div class="data header">
-                <img src="../static/img/profile.jpeg" alt="profile" class="profile-pic"/>
-                <div class="header-info">
-                    <p>Марков Кирилл Андреевич</p>
-                    <p>Группа: P3213</p>
-                    <p>Вариант: 2306</p>
-                    <a href="https://vk.com/enifleefi"><img src="../static/img/vk_logo.png" alt="vk"></a>
-                    <a href="https://github.com/enifl33fi"><img src="../static/img/github_logo.png" alt="github"></a>
-                    <a href="https://isu.ifmo.ru/pls/apex/f?p=2143:PERSON:102027591272963::NO:RP:PID:367380"><img src="../static/img/itmo_logo.png" alt="itmo"></a>
+<body id="anim-background">
+    <div class="container">
+        <div class="data header">
+            <img src="../static/img/profile.jpeg" alt="profile" class="profile-pic"/>
+            <div class="header-info">
+                <p>Марков Кирилл Андреевич</p>
+                <p>Группа: P3213</p>
+                <p>Вариант: 2306</p>
+                <a href="https://vk.com/enifleefi"><img src="../static/img/vk_logo.png" alt="vk"></a>
+                <a href="https://github.com/enifl33fi"><img src="../static/img/github_logo.png" alt="github"></a>
+                <a href="https://isu.ifmo.ru/pls/apex/f?p=2143:PERSON:102027591272963::NO:RP:PID:367380"><img src="../static/img/itmo_logo.png" alt="itmo"></a>
+            </div>
+        </div>
+
+        <div class="data main">
+            <form action="script.php" method="post">
+                <div class="inputs">
+                    <div class="single-field y-field">
+                        <label for="y">Y</label>
+                        <input id = "y" name="y" type="text" placeholder="от -3 до 5" onkeyup="validateY()"/>
+                    </div>
+
+                    <div class="single-field r-field">
+                        <label for="r">R</label>
+                        <input id = "r" name="r" type="text" placeholder="от 2 до 5" onkeyup="validateR()"/>
+                    </div>
+
+                    <div class="single-field x-field">
+                        <fieldset>
+                            <legend>X</legend>
+
+                            <input id = "-3" type="checkbox" name = "x[]" value="-3" checked onchange="validateX(this)"/>
+                            <label for="-3"> -3</label>
+
+                            <input id = "-2" type="checkbox" name = "x[]" value="-2" onchange="validateX(this)"/>
+                            <label for="-2"> -2</label>
+
+                            <input id = "-1" type="checkbox" name = "x[]" value="-1" onchange="validateX(this)"/>
+                            <label for="-1"> -1</label>
+
+                            <input id = "0" type="checkbox" name = "x[]" value="0" onchange="validateX(this)"/>
+                            <label for="0"> 0</label>
+
+                            <input id = "1" type="checkbox" name = "x[]" value="1" onchange="validateX(this)"/>
+                            <label for="1"> 1</label>
+
+                            <input id = "2" type="checkbox" name = "x[]" value="2" onchange="validateX(this)"/>
+                            <label for="2"> 2</label>
+
+                            <input id = "3" type="checkbox" name = "x[]" value="3" onchange="validateX(this)"/>
+                            <label for="3"> 3</label>
+
+                            <input id = "4" type="checkbox" name = "x[]" value="4" onchange="validateX(this)"/>
+                            <label for="4"> 4</label>
+
+                            <input id = "5" type="checkbox" name = "x[]" value="5" onchange="validateX(this)"/>
+                            <label for="5"> 5</label>
+                        </fieldset>
+                    </div>
                 </div>
-            </div>
 
-            <div class="data main">
-                <form action="script.php" method="post">
-                    <div class="inputs">
-                        <div class="single-field y-field">
-                            <label for="y">Y</label>
-                            <input id = "y" name="y" type="text" placeholder="от -3 до 5" onkeyup="validateY()"/>
-                        </div>
-
-                        <div class="single-field r-field">
-                            <label for="r">R</label>
-                            <input id = "r" name="r" type="text" placeholder="от 2 до 5" onkeyup="validateR()"/>
-                        </div>
-
-                        <div class="single-field x-field">
-                            <fieldset>
-                                <legend>X</legend>
-
-                                <input id = "-3" type="checkbox" name = "x[]" value="-3" checked onchange="validateX(this)"/>
-                                <label for="-3"> -3</label>
-
-                                <input id = "-2" type="checkbox" name = "x[]" value="-2" onchange="validateX(this)"/>
-                                <label for="-2"> -2</label>
-
-                                <input id = "-1" type="checkbox" name = "x[]" value="-1" onchange="validateX(this)"/>
-                                <label for="-1"> -1</label>
-
-                                <input id = "0" type="checkbox" name = "x[]" value="0" onchange="validateX(this)"/>
-                                <label for="0"> 0</label>
-
-                                <input id = "1" type="checkbox" name = "x[]" value="1" onchange="validateX(this)"/>
-                                <label for="1"> 1</label>
-
-                                <input id = "2" type="checkbox" name = "x[]" value="2" onchange="validateX(this)"/>
-                                <label for="2"> 2</label>
-
-                                <input id = "3" type="checkbox" name = "x[]" value="3" onchange="validateX(this)"/>
-                                <label for="3"> 3</label>
-
-                                <input id = "4" type="checkbox" name = "x[]" value="4" onchange="validateX(this)"/>
-                                <label for="4"> 4</label>
-
-                                <input id = "5" type="checkbox" name = "x[]" value="5" onchange="validateX(this)"/>
-                                <label for="5"> 5</label>
-                            </fieldset>
-                        </div>
+                <div class = "additional">
+                    <div class="single-field picture-field">
+                        <img src="../static/img/main.png" alt="main">
                     </div>
-
-                    <div class = "additional">
-                        <div class="single-field picture-field">
-                            <img src="../static/img/main.png" alt="main">
-                        </div>
-                        <input type="submit" value="Проверить" id="submit" disabled class = "hidden">
-                    </div>
+                    <input type="submit" value="Проверить" id="submit" disabled class = "hidden">
+                </div>
 
 
-                </form>
+            </form>
 
-            </div>
         </div>
     </div>
     <script>

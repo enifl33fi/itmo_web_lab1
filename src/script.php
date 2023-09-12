@@ -84,16 +84,24 @@
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
         <script defer src="../static/js/validation.js"></script>
         <style>
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
+
             body {
                 background-color: #1D1E1E;
                 color: #D0D0D0;
                 font-family: 'Lucida Sans Unicode', 'Helvetica', sans-serif;
                 font-weight: 600;
                 font-size: 16px;
-                margin: 0;
             }
 
             table {
+                overflow: auto;
                 border:solid #D0D0D0 1px;
                 border-radius: 10px;
                 margin: auto;
@@ -134,11 +142,36 @@
                 position:absolute;
                 width: 100%;
                 height: 100%;
+                padding-bottom: 10%;
             }
 
             .container {
                 width: 50%;
                 margin: auto;
+            }
+            .scroll {
+                overflow: auto;
+                max-height: 40vh;
+            }
+            /* width */
+            .scroll::-webkit-scrollbar {
+                width: 10px;
+                height: 10px;
+            }
+            .scroll::-webkit-scrollbar-corner {
+                background-color: inherit;
+            }
+
+            /* Track */
+            .scroll::-webkit-scrollbar-track {
+                background-color: #1D1E1E;
+                border-radius: 10px;
+            }
+
+            /* Handle */
+            .scroll::-webkit-scrollbar-thumb {
+                background-color: #141414;
+                border-radius: 10px;
             }
 
             .data {
@@ -155,32 +188,35 @@
             <div class="container">
                 <div class="data">
                     <a href="index.html" class="back"><img src="../static/img/back.png" alt="go back"/></a>
-                    <table>
-                        <tr>
-                            <th>X</th>
-                            <th>Y</th>
-                            <th>R</th>
-                            <th>Date</th>
-                            <th>Script Time</th>
-                            <th>Result</th>
-                        </tr>
-                        <?php foreach ($_SESSION['table'] as $table): ?>
+                    <div class="scroll">
+                        <table>
                             <tr>
-                                <?php for ($i = 0; $i < count($table) - 1; $i++): ?>
-                                    <td><?php echo $table[$i]; ?></td>
-                                <?php endfor; ?>
-                                <?php
+                                <th>X</th>
+                                <th>Y</th>
+                                <th>R</th>
+                                <th>Date</th>
+                                <th>Script Time</th>
+                                <th>Result</th>
+                            </tr>
+                            <?php foreach ($_SESSION['table'] as $table): ?>
+                                <tr>
+                                    <?php for ($i = 0; $i < count($table) - 1; $i++): ?>
+                                        <td><?php echo $table[$i]; ?></td>
+                                    <?php endfor; ?>
+                                    <?php
                                     $color = "#FF9999";
                                     $text_result = "Говно, переделывай";
                                     if (end($table)) {
                                         $color = "#99FF99";
                                         $text_result = "С пивом потянет";
                                     }
-                                ?>
-                                <td style="color: <?php echo $color; ?>"><?php echo $text_result; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </table>
+                                    ?>
+                                    <td style="color: <?php echo $color; ?>"><?php echo $text_result; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

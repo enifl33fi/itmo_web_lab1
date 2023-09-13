@@ -5,16 +5,16 @@ let isFieldsValid = {
     y:false,
     r:false
 }
+const RegEx = /^-?\d+([.,]\d+)?$/
 
 function isValidY(yFieldVal) {
-    if (isNaN(yFieldVal)) {
+    if (!RegEx.test(yFieldVal)) {
         return false
     }
     return yFieldVal >= -3 && yFieldVal <= 5
 }
 
 function validateY() {
-
     let yField = document.getElementById('y')
     yField.style.borderWidth = '2px'
     if (isValidY(yField.value.replace(',', '.'))) {
@@ -32,7 +32,7 @@ function validateY() {
 
 
 function isValidR(rFieldVal) {
-    if (isNaN(rFieldVal)) {
+    if (!RegEx.test(rFieldVal)) {
         return false
     }
     return rFieldVal >= 2 && rFieldVal <= 5

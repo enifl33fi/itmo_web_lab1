@@ -19,11 +19,16 @@
         $_SESSION['table'] = array();
     }
 
+    function replaceComma($field) {
+        return str_replace(",", ".", $field);
+    }
+
     function checkY($yField): bool
     {
         if (!isset($yField)) {
             return false;
         }
+        $yField = replaceComma($yField);
         return is_numeric($yField) && $yField >= -3 && $yField <= 5;
     }
     function checkR($rField): bool
@@ -31,11 +36,12 @@
         if (!isset($rField)) {
             return false;
         }
+        $rField = replaceComma($rField);
         return is_numeric($rField) && $rField >= 2 && $rField <= 5;
     }
     function checkX($x): bool
     {
-        if (!isset($x) or empty($x) or sizeof($x) != 1) {
+        if (!isset($x) or empty($x) or sizeof($x) != 1 or !is_array($x)) {
             return false;
         }
         $xField = $x[0];
@@ -67,7 +73,7 @@
         $result = true;
     }
     if (checkData($x, $yField, $rField)) {
-        $curDate = date('Y-m-d H:i:s');
+        $curDate = time();
         $scriptTime = (microtime(true) - $_SERVER['REQUEST_TIME_FLOAT']) . 'с';
         array_push($_SESSION['table'], array($x[0], $yField, $rField, $curDate, $scriptTime, $result));
         header("Location: " . $_SERVER['REQUEST_URI']);
@@ -191,7 +197,7 @@
                         <?php foreach ($_SESSION['table'] as $table): ?>
                             <tr>
                                 <?php for ($i = 0; $i < count($table) - 1; $i++): ?>
-                                    <td><?php echo $table[$i]; ?></td>
+                                    <td class = <?php echo "td-" . $i; ?>><?php echo $table[$i]; ?></td>
                                 <?php endfor; ?>
                                 <?php
                                 $color = "#FF9999";
@@ -204,6 +210,13 @@
                                 <td style="color: <?php echo $color; ?>"><?php echo $text_result; ?></td>
                             </tr>
                         <?php endforeach; ?>
+                        <script>
+                            let dates = document.getElementsByClassName("td-3")
+                            for (elem of dates) {
+                                let curDate = new Date(elem.innerHTML * 1000);
+                                elem.innerHTML = curDate.toLocaleDateString() + " " + curDate.toLocaleTimeString();
+                            }
+                        </script>
                     </table>
                 </div>
 
